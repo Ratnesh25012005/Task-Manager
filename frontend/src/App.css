@@ -1,0 +1,421 @@
+.auth-shell,
+.dashboard-shell {
+  min-height: 100svh;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.auth-shell {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(112, 88, 255, 0.2), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(18, 199, 214, 0.18), transparent 28%),
+    linear-gradient(160deg, #08111f 0%, #0f172a 48%, #111827 100%);
+}
+
+.hero-panel,
+.auth-card,
+.task-form-card,
+.board-column,
+.overview-grid article,
+.topbar,
+.task-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.hero-panel {
+  color: #e5eefb;
+  border-radius: 28px;
+  padding: 44px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  color: #8fb6ff;
+}
+
+.hero-panel h1,
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  color: #f8fbff;
+}
+
+.hero-copy {
+  margin-top: 18px;
+  max-width: 56ch;
+  color: rgba(229, 238, 251, 0.82);
+  font-size: 1.05rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-stats div,
+.overview-grid article {
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.hero-stats strong,
+.overview-grid strong {
+  display: block;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.hero-stats span,
+.overview-grid span {
+  color: rgba(229, 238, 251, 0.72);
+}
+
+.auth-card {
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.auth-switch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 6px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.auth-switch button,
+.ghost-button,
+.primary-button,
+.text-button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-switch button {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: transparent;
+  color: #0f172a;
+  transition: 0.2s ease;
+}
+
+.auth-switch .active {
+  background: #0f172a;
+  color: #fff;
+}
+
+.auth-form,
+.task-form {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: 1px solid #d6dbe7;
+  background: #fff;
+  color: #0f172a;
+  padding: 14px 16px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.primary-button,
+.ghost-button,
+.text-button {
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #0f172a, #334155);
+  color: #fff;
+}
+
+.primary-button:hover,
+.ghost-button:hover,
+.text-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled,
+.ghost-button:disabled,
+.text-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.message {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.dashboard-shell {
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 30%),
+    linear-gradient(180deg, #f8fafc 0%, #edf2ff 100%);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: 24px;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.topbar h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-chip {
+  display: grid;
+  gap: 3px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-chip span {
+  font-weight: 700;
+}
+
+.user-chip small {
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.ghost-button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.overview-grid article {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+}
+
+/* Make the numeric counts clearly visible on the white overview cards */
+.overview-grid article strong {
+  color: #0f172a;
+}
+
+.overview-grid span {
+  color: #64748b;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.task-form-card,
+.board-column {
+  border-radius: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(15, 23, 42, 0.06);
+}
+
+.card-title,
+.column-head,
+.task-card-top,
+.task-actions,
+.topbar-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-title,
+.column-head,
+.task-card-top {
+  align-items: center;
+}
+
+.card-title h2,
+.column-head h2,
+.task-card h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.column-head span {
+  min-width: 40px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #0f172a;
+  text-align: center;
+  font-weight: 700;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.task-card {
+  border-radius: 20px;
+  padding: 18px;
+  color: #e2e8f0;
+  background: linear-gradient(180deg, #0f172a, #111827);
+}
+
+.task-card h3,
+.task-card p,
+.task-card span {
+  color: #f8fafc;
+}
+
+.task-card span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.82rem;
+}
+
+.task-card p {
+  margin: 14px 0 0;
+  color: rgba(248, 250, 252, 0.76);
+}
+
+.task-actions {
+  margin-top: 16px;
+}
+
+.text-button {
+  padding: 0;
+  color: #e2e8f0;
+  background: transparent;
+}
+
+.text-button.danger {
+  color: #fda4af;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(148, 163, 184, 0.12);
+  color: #475569;
+}
+
+@media (max-width: 1100px) {
+  .auth-shell,
+  .workspace-grid,
+  .board-grid,
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .topbar-actions,
+  .card-title,
+  .column-head,
+  .task-card-top,
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-shell,
+  .dashboard-shell {
+    padding: 16px;
+  }
+
+  .hero-panel,
+  .auth-card,
+  .task-form-card,
+  .board-column,
+  .topbar {
+    border-radius: 20px;
+    padding: 18px;
+  }
+}
