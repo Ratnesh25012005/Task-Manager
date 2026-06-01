@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
+import { clientServer } from './client'
 import './App.css'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9080'
 
 const initialAuth = {
   name: '',
@@ -43,23 +42,19 @@ function App() {
   }, [tasks])
 
   const request = async (path, options = {}) => {
-    const { headers: optionHeaders, ...restOptions } = options
+    try {
+      const response = await clientServer.request({
+        url: path,
+        ...options,
+        headers: {
+          ...(options.headers || {}),
+        },
+      })
 
-    const response = await fetch(`${API_URL}${path}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(optionHeaders || {}),
-      },
-      ...restOptions,
-    })
-
-    const data = await response.json().catch(() => ({}))
-
-    if (!response.ok) {
-      throw new Error(data.message || 'Something went wrong.')
+      return response.data
+    } catch (error) {
+      throw new Error(error.response?.data?.message || 'Something went wrong.')
     }
-
-    return data
   }
 
   const handleLogout = (clearMessages = true) => {
@@ -124,7 +119,7 @@ function App() {
 
       const data = await request(endpoint, {
         method: 'POST',
-        body: JSON.stringify(payload),
+        data: payload,
       })
 
       setToken(data.token)
@@ -154,7 +149,7 @@ function App() {
 
       const data = await request(isEditing ? `/api/posts/${editingTaskId}` : '/api/posts', {
         method: isEditing ? 'PUT' : 'POST',
-        body: JSON.stringify(taskForm),
+        data: taskForm,
         headers: {
           Authorization: `Bearer ${token}`,
         },

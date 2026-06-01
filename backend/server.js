@@ -39,11 +39,17 @@ app.use(postRoutes);
 app.use(userRoutes);
 app.use(express.static('uploads'));
 
+app.get('/', (req, res) => {
+    res.status(200).json({ message: 'Task Manager API is running.' });
+});
+
 const start = async () => {
     await mongoose.connect(uri);
 
-    app.listen(9080, () => {
-        console.log('Server is working at port 9080');
+    const port = process.env.PORT || 9080;
+
+    app.listen(port, () => {
+        console.log(`Server is working at port ${port}`);
     });
 };
 
